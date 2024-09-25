@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asking out Saloni</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 32px;
+            font-family: Candara, Oswald;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 125%; /* Making the image five times bigger */
+        }
+        #botao1, #botao2 {
+            font-size: 24px;
+            padding: 15px 30px;
+            cursor: pointer;
+        }
+        #botao1 {
+            position: fixed;
+            top: 80%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: white;
+        }
+        #botao2 {
+            position: fixed;
+            top: 80%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p>Should we play a game?</p>
+    <img src="https://i.pinimg.com/originals/d5/91/dd/d591ddb2eb3cede03d29c42ecdd1bf24.gif" alt="Fun GIF">
+    
+    <button id="botao1">YES!</button>
+    <button id="botao2">NO</button>
+    
+    <script>
+        // Select the "NO" button
+        const button2 = document.getElementById('botao2');
+
+        // Event listener for the "NO" button to move it around
+        button2.addEventListener('mouseover', function() {
+            // Move the "NO" button to a random larger position
+            const newLeft = Math.random() * (window.innerWidth - this.offsetWidth);
+            const newTop = Math.random() * (window.innerHeight - this.offsetHeight);
+            
+            this.style.left = newLeft + 'px';
+            this.style.top = newTop + 'px';
+        });
+
+           
+        document.getElementById('botao1').
+        addEventListener('click', function() {
+            window.location.href = 'game1.html'; // Redirect to game2.html
+
+        });
+
+    </script>
+</body>
+</html>

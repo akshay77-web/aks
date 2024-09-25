@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compatibility Test</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the top */
+            height: 100vh;
+            font-family: Candara, Oswald;
+            background-color: pink; /* Set background to pink */
+            padding: 20px; /* Add some padding */
+        }
+        #question {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .choiceButton {
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 10px 30px; /* Increased horizontal margin for more gap */
+            border: none;
+            cursor: pointer;
+        }
+        #mountainsButton {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        #beachesButton {
+            background-color: #f44336; /* Red */
+            color: white;
+        }
+        #nextButton {
+            margin-top: 20px;
+            font-size: 24px;
+            padding: 15px 30px;
+            background-color: #007BFF; /* Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #message {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        img {
+            width: 300px; /* Set a fixed width for images */
+            height: auto; /* Maintain aspect ratio */
+            margin: 0 20px;
+        }
+        .button-container {
+            display: flex; /* Align buttons horizontally */
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compatibility Test</h1>
+    <div id="question">Mountains or Beaches?</div>
+
+    <div class="image-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfrGjgpDrJohAlOiUbaGapiJWKhHwIBmyjY5pcVtWAg2Y4urBbyM8jpUIm-fAHyU3OHto&usqp=CAU" alt="Mountains" id="mountainImage">
+        <img src="data:image/jpeg;base64,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" alt="Beach" id="beachImage">
+    </div>
+
+    <div class="button-container">
+        <button id="mountainsButton" class="choiceButton">Mountains</button>
+        <button id="beachesButton" class="choiceButton">Beaches</button>
+    </div>
+
+    <div id="message"></div> <!-- Message display -->
+    <button id="nextButton">Next</button>
+
+    <script>
+        // Event listeners for the choice buttons
+        document.getElementById('mountainsButton').addEventListener('click', function() {
+            document.getElementById('message').innerText = 'Oops, mine is Beaches!';
+        });
+
+        document.getElementById('beachesButton').addEventListener('click', function() {
+            document.getElementById('message').innerText = 'Oops, mine is Mountains!';
+        });
+
+        // Event listener for the next button
+        document.getElementById('nextButton').addEventListener('click', function() {
+            window.location.href = 'game2.html'; // Redirect to game2.html
+        });
+    </script>
+</body>
+</html>

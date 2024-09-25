@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Things</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the top */
+            height: 100vh;
+            font-family: Candara, Oswald;
+            background-color: pink; /* Set background to pink */
+            padding: 20px; /* Add some padding */
+            overflow: hidden; /* Prevent scrolling */
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            z-index: 1; /* Ensure the text is above the background */
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .big-image {
+            width: 100%; /* Make the big image responsive */
+            height: auto; /* Maintain aspect ratio */
+            display: none; /* Start hidden */
+        }
+        .small-image {
+            position: absolute;
+            top: 20%; /* Adjust as needed */
+            left: 20%; /* Adjust as needed */
+            width: 50px; /* Set a fixed size for the small image */
+            height: auto; /* Maintain aspect ratio */
+            display: none; /* Start hidden */
+            z-index: 2; /* Ensure it appears above the big image */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0; /* Start completely transparent */
+            }
+            to {
+                opacity: 1; /* Fully visible */
+            }
+        }
+        .controls {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>No, she is beautiful!</h1>
+    
+    <div class="image-container">
+        <img src="no.png" alt="Big Image" class="big-image" id="bigImage"> <!-- Big image -->
+        <img src="boy.png" alt="Small Image" class="small-image" id="smallImage"> <!-- Small image -->
+    </div>
+
+    <audio id="backgroundAudio" preload="auto" loop>
+        <source src="Eenie Meenie(PagalWorld.com.sb).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="controls">
+        <button onclick="playAudio()">Play</button>
+        <button onclick="pauseAudio()">Pause</button>
+        <button onclick="seekAudio(30)">Start at 30 seconds</button> <!-- Seek to 30 seconds -->
+    </div>
+
+    <script>
+        // Show the images and trigger the fade-in effect
+        const bigImg = document.getElementById('bigImage');
+        const smallImg = document.getElementById('smallImage');
+
+        bigImg.style.display = 'block'; // Make the big image visible
+        bigImg.style.animation = 'fadeIn 5s forwards'; // Apply the fade-in animation
+
+        smallImg.style.display = 'block'; // Make the small image visible
+        smallImg.style.animation = 'fadeIn 5s forwards'; // Apply the fade-in animation
+
+        const audio = document.getElementById('backgroundAudio');
+
+        // Start audio from 30 seconds when the page loads
+        window.onload = function() {
+            audio.currentTime = 30; // Set to start from 30 seconds
+            audio.play(); // Start playing
+        };
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+        }
+
+        function seekAudio(seconds) {
+            audio.currentTime = seconds; // Seek to the specified time
+            audio.play(); // Start playing from that time
+        }
+    </script>
+</body>
+</html>
