@@ -19,7 +19,6 @@
             margin-bottom: 50px;
         }
         .image-container {
-            margin-top: 3000px;
             display: flex;
             justify-content: center;
             align-items: center; /* Center vertically */
@@ -29,7 +28,6 @@
             min-height: 300px; /* Ensures container has height */
         }
         .image-container img {
-            margin-top: 300px;
             position: absolute;
             width: 100%;
             height: auto;
@@ -53,7 +51,6 @@
     <div class="image-container">
         <img src="WhatsApp Image 2024-09-26 at 20.26.12_e620ecb0.jpg" alt="Big Image 1">
         <img src="WhatsApp Image 2024-09-26 at 19.29.13_7cba3d67.jpg" alt="Big Image 2">
-        <img src="WhatsApp Image 2024-09-26 at 20.26.12_f16efddc.jpg" alt="Big Image 3">
         <img src="boy.png" alt="Small Image" class="small-image">
     </div>
 
@@ -68,14 +65,10 @@
         let currentIndex = 0;
 
         function showNextImage() {
-            if (currentIndex < images.length) {
-                if (currentIndex > 0) {
-                    images[currentIndex - 1].style.opacity = 0; // Hide previous image
-                }
-                images[currentIndex].style.opacity = 1; // Show current image
-                currentIndex++;
-                setTimeout(showNextImage, 3000); // Change image every 3 seconds
-            }
+            images[currentIndex].style.opacity = 0; // Hide current image
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            images[currentIndex].style.opacity = 1; // Show next image
+            setTimeout(showNextImage, 3000); // Change image every 3 seconds
         }
 
         // Start audio from 33 seconds when the page loads
@@ -87,3 +80,4 @@
     </script>
 </body>
 </html>
+
