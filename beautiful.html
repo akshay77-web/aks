@@ -13,24 +13,28 @@
             height: 100vh;
             font-family: Arial, sans-serif;
             background-color: rgb(253, 230, 230);
-            padding: 20px;
+            padding: 0; /* Remove padding to utilize full screen */
+            margin: 0; /* Remove default margin */
         }
         h1 {
-            margin-bottom: 50px;
+            margin-bottom: 20px; /* Adjust margin for smaller screens */
+            font-size: 24px; /* Adjust font size */
         }
         .image-container {
             display: flex;
             justify-content: center;
             align-items: center; /* Center vertically */
-            margin-top: 50px;
+            margin-top: 0; /* Remove top margin */
             position: relative;
-            width: 60%;
-            min-height: 300px; /* Ensures container has height */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: hidden; /* Hide overflow */
         }
         .image-container img {
             position: absolute;
-            width: 100%;
-            height: auto;
+            width: 100%; /* Full width for responsiveness */
+            height: 100%; /* Full height for responsiveness */
+            object-fit: cover; /* Maintain aspect ratio while covering the container */
             opacity: 0; /* Start hidden */
             transition: opacity 1s ease-in-out; /* Smooth fade-in */
         }
@@ -80,4 +84,3 @@
     </script>
 </body>
 </html>
-
