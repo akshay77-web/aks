@@ -14,25 +14,23 @@
             font-family: Arial, sans-serif;
             background-color: rgb(253, 230, 230);
             padding: 20px;
-            overflow: hidden; /* Prevent overflow on smaller screens */
+            overflow: hidden; /* Prevent overflow */
         }
         h1 {
-            margin-bottom: 20px; /* Reduced margin for better fit */
+            margin-bottom: 20px;
         }
         .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px; /* Reduced margin for better fit */
-            width: 100%; /* Full width for responsiveness */
-            max-height: 80vh; /* Limit height to avoid overflow */
-            overflow: hidden; /* Prevent images from overflowing */
+            position: relative;
+            width: 100%; /* Full width */
+            max-width: 600px; /* Limit maximum width */
+            height: 80vh; /* Limit height */
+            overflow: hidden; /* Prevent overflow */
         }
         .image-container img {
-            width: 100%; /* Full width for responsiveness */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 100%; /* Ensure the image fits within the container height */
-            object-fit: contain; /* Ensure the entire image is visible */
+            position: absolute;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            object-fit: cover; /* Cover without distortion */
             opacity: 0; /* Start hidden */
             transition: opacity 1s ease-in-out; /* Smooth fade-in */
         }
@@ -40,11 +38,10 @@
             opacity: 1; /* Show the first image initially */
         }
         .small-image {
-            width: 120px; /* Adjust size as needed */
+            width: 120px; /* Adjust size */
             height: auto;
-            margin-right: 20px; /* Space between small image and big images */
-            z-index: 1; /* Ensure it's above the big images */
-            position: relative; /* Position relative to the container */
+            margin-top: 20px; /* Space below */
+            z-index: 1; /* Above big images */
         }
     </style>
 </head>
@@ -82,4 +79,3 @@
     </script>
 </body>
 </html>
-
