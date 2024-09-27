@@ -14,18 +14,19 @@
             font-family: Arial, sans-serif;
             background-color: rgb(253, 230, 230);
             padding: 20px;
+            overflow: hidden; /* Prevent overflow on smaller screens */
         }
         h1 {
-            margin-bottom: 50px;
+            margin-bottom: 20px; /* Reduced margin for better fit */
         }
         .image-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 50px;
-            position: relative;
-            width: 80%; /* Adjust width as needed */
+            margin-top: 20px; /* Reduced margin for better fit */
+            width: 100%; /* Full width for responsiveness */
             max-height: 80vh; /* Limit height to avoid overflow */
+            overflow: hidden; /* Prevent images from overflowing */
         }
         .image-container img {
             width: 100%; /* Full width for responsiveness */
