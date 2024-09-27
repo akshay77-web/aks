@@ -22,28 +22,23 @@
         .image-container {
             position: relative;
             width: 100%; /* Full width */
-            max-width: 600px; /* Limit maximum width */
-            height: 80vh; /* Limit height */
+            height: 100%; /* Full height to ensure visibility */
+            max-height: 80vh; /* Limit max height */
             overflow: hidden; /* Prevent overflow */
         }
         .image-container img {
             position: absolute;
-            top: 0; /* Align to top */
-            left: 0; /* Align to left */
-            width: 100%; /* Full width */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
+            width: auto; /* Maintain aspect ratio */
             height: 100%; /* Full height */
-            object-fit: cover; /* Cover without distortion */
+            max-width: 100%; /* Prevent overflow */
             opacity: 0; /* Start hidden */
             transition: opacity 1s ease-in-out; /* Smooth fade-in */
         }
         .image-container img:first-child {
             opacity: 1; /* Show the first image initially */
-        }
-        .small-image {
-            width: 120px; /* Adjust size */
-            height: auto;
-            margin-top: 20px; /* Space below */
-            z-index: 1; /* Above big images */
         }
     </style>
 </head>
@@ -52,7 +47,6 @@
     <div class="image-container">
         <img src="WhatsApp Image 2024-09-26 at 20.26.12_e620ecb0.jpg" alt="Big Image 1">
         <img src="WhatsApp Image 2024-09-26 at 19.29.13_7cba3d67.jpg" alt="Big Image 2">
-        <img src="boy.png" alt="Small Image" class="small-image">
     </div>
 
     <audio id="backgroundAudio" preload="auto" loop>
@@ -61,7 +55,7 @@
     </audio>
 
     <script>
-        const images = document.querySelectorAll('.image-container img:not(.small-image)');
+        const images = document.querySelectorAll('.image-container img');
         const audio = document.getElementById('backgroundAudio');
         let currentIndex = 0;
 
@@ -81,4 +75,5 @@
     </script>
 </body>
 </html>
+
 
