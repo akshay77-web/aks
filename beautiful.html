@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Audio Test</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: rgb(253, 230, 230);
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 50px;
+        }
+        .image-container {
+            margin-top: 3000px;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center vertically */
+            margin-top: 50px;
+            position: relative;
+            width: 60%;
+            min-height: 300px; /* Ensures container has height */
+        }
+        .image-container img {
+            margin-top: 300px;
+            position: absolute;
+            width: 100%;
+            height: auto;
+            opacity: 0; /* Start hidden */
+            transition: opacity 1s ease-in-out; /* Smooth fade-in */
+        }
+        .image-container img:first-child {
+            opacity: 1; /* Show the first image initially */
+        }
+        .small-image {
+            width: 120px; /* Adjust size as needed */
+            height: auto;
+            margin-right: 20px; /* Space between small image and big images */
+            z-index: 1; /* Ensure it's above the big images */
+            position: relative; /* Position relative to the container */
+        }
+    </style>
+</head>
+<body>
+    <h1>no she is beautiful</h1>
+    <div class="image-container">
+        <img src="WhatsApp Image 2024-09-26 at 20.26.12_e620ecb0.jpg" alt="Big Image 1">
+        <img src="WhatsApp Image 2024-09-26 at 19.29.13_7cba3d67.jpg" alt="Big Image 2">
+        <img src="WhatsApp Image 2024-09-26 at 20.26.12_f16efddc.jpg" alt="Big Image 3">
+        <img src="boy.png" alt="Small Image" class="small-image">
+    </div>
+
+    <audio id="backgroundAudio" preload="auto" loop>
+        <source src="Eenie Meenie(PagalWorld.com.sb).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const images = document.querySelectorAll('.image-container img:not(.small-image)');
+        const audio = document.getElementById('backgroundAudio');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            if (currentIndex < images.length) {
+                if (currentIndex > 0) {
+                    images[currentIndex - 1].style.opacity = 0; // Hide previous image
+                }
+                images[currentIndex].style.opacity = 1; // Show current image
+                currentIndex++;
+                setTimeout(showNextImage, 3000); // Change image every 3 seconds
+            }
+        }
+
+        // Start audio from 33 seconds when the page loads
+        window.onload = function() {
+            audio.currentTime = 33; 
+            audio.play(); 
+            showNextImage(); // Start showing images
+        };
+    </script>
+</body>
+</html>

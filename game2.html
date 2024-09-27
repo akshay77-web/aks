@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Do You Prefer?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align items to the top */
+            height: 100vh;
+            font-family: Candara, Oswald;
+            background-color: rgb(253, 230, 230); /* Set background to pink */
+            padding: 20px; /* Add some padding */
+        }
+        #question {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .choiceButton {
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 10px 15px; /* Adjusted margin for better spacing */
+            border: none;
+            cursor: pointer;
+        }
+        #teaButton {
+            background-color: #FFC107; /* Yellow */
+            color: white;
+        }
+        #coffeeButton {
+            background-color: #795548; /* Brown */
+            color: white;
+        }
+        #nextButton {
+            margin-top: 20px;
+            font-size: 24px;
+            padding: 15px 30px;
+            background-color: #007BFF; /* Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #message {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        img {
+            width: 150px; /* Set a fixed width for images */
+            height: auto; /* Maintain aspect ratio */
+            margin: 10px; /* Add margin for spacing */
+        }
+        .button-container {
+            display: flex; /* Align buttons horizontally */
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>What Do You Prefer?</h1>
+    <div class="image-container">
+        <img src="https://www.shutterstock.com/shutterstock/videos/1098231383/thumb/10.jpg?ip=x480" alt="Tea"> <!-- Update with a valid tea image URL -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnyo22uXpMANrbflFVcxHcJUVP8Z_szrQC1A&s" alt="Coffee"> <!-- Update with a valid coffee image URL -->
+    </div>
+
+    <div class="button-container">
+        <button id="teaButton" class="choiceButton">Tea</button>
+        <button id="coffeeButton" class="choiceButton">Coffee</button>
+    </div>
+
+    <div id="message"></div> <!-- Message display -->
+    <button id="nextButton">Next</button>
+
+    <script>
+        // Event listeners for the choice buttons
+        document.getElementById('teaButton').addEventListener('click', function() {
+            document.getElementById('message').innerText = 'I prefer Coffee!';
+        });
+
+        document.getElementById('coffeeButton').addEventListener('click', function() {
+            document.getElementById('message').innerText = 'I prefer Tea!';
+        });
+
+        // Event listener for the next button
+        document.getElementById('nextButton').addEventListener('click', function() {
+            window.location.href = 'final.html'; // Redirect to final.html or any other page
+        });
+    </script>
+</body>
+</html>
