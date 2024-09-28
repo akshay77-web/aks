@@ -29,13 +29,21 @@
             justify-content: center; /* Center horizontally */
         }
         .image-container img {
-            max-width: 80%; /* Limit width to 80% of the container */
-            max-height: 80%; /* Limit height to 80% of the container */
+            max-width: 90%; /* Limit width to 90% of the container */
+            max-height: 90%; /* Limit height to 90% of the container */
             object-fit: contain; /* Maintain aspect ratio without stretching */
             display: none; /* Start hidden */
         }
         .image-container img:first-child {
             display: block; /* Show the first image initially */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 600px) {
+            .image-container img {
+                max-width: 70%; /* Smaller width for mobile */
+                max-height: 70%; /* Smaller height for mobile */
+            }
         }
     </style>
 </head>
