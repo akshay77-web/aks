@@ -80,7 +80,9 @@
         window.onload = function() {
             audio.currentTime = 33; 
             audio.play(); 
-            setTimeout(showNextImage, 3000); // Start showing images after 3 seconds
+            setTimeout(() => {
+                showNextImage(); // Start showing images after 3 seconds
+            }, 3000); // Allow the first image to show for 3 seconds
         };
     </script>
 </body>
