@@ -46,7 +46,7 @@
     <div class="image-container">
         <img src="WhatsApp Image 2024-09-28 at 17.18.14_025e98ca.jpg" alt="Big Image 1">
         <img src="WhatsApp Image 2024-09-26 at 19.29.13_7cba3d67.jpg" alt="Big Image 2">
-        <img src="WhatsApp Image 2024-09-26 at 20.26.12_e620ecb0.jpg" alt="Big Image 3"> <!-- -->
+        <img src="WhatsApp Image 2024-09-26 at 20.26.12_e620ecb0.jpg" alt="Big Image 3">
     </div>
 
     <audio id="backgroundAudio" preload="auto" loop>
@@ -80,7 +80,7 @@
         window.onload = function() {
             audio.currentTime = 33; 
             audio.play(); 
-            showNextImage(); // Start showing images
+            setTimeout(showNextImage, 3000); // Start showing images after 3 seconds
         };
     </script>
 </body>
